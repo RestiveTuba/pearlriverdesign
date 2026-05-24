@@ -6,17 +6,17 @@ const STEPS = [
   {
     num: "01",
     title: "We learn your business",
-    body: "A short call. We collect your info, photos, and services.",
+    body: "After one 20-minute call, you have a clear scope: your services, your towns, your price. Nothing left to figure out.",
   },
   {
     num: "02",
     title: "We build your site",
-    body: "Custom site built and deployed same day, no templates.",
+    body: "By the next morning you have a live URL with your name, your work, and a contact form that sends directly to your phone.",
   },
   {
     num: "03",
     title: "You start getting found",
-    body: "Live on Google, mobile-ready, accepting customers.",
+    body: "Within days your site appears in Google searches for your trade and your town. Leads come to you instead of going to a competitor.",
   },
 ];
 

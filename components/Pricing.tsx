@@ -184,7 +184,7 @@ export default function Pricing() {
               className="font-sans mb-10"
               style={{ color: "var(--muted)", fontSize: "14px" }}
             >
-              upfront, then $[PRICE]/month
+              upfront, then $300/month
             </p>
 
             <ul className="space-y-3 mb-10">
