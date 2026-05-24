@@ -63,15 +63,8 @@ export default function LeadForm() {
       email: fd.get("email") as string,
     };
 
-    const webhookUrl = process.env.NEXT_PUBLIC_ZAPIER_WEBHOOK_URL;
-    if (!webhookUrl) {
-      setStatus("error");
-      setError("Submission unavailable. Please call us directly.");
-      return;
-    }
-
     try {
-      const res = await fetch(webhookUrl, {
+      const res = await fetch("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
