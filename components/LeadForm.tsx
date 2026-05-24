@@ -44,6 +44,7 @@ const LABEL_STYLE: React.CSSProperties = {
 };
 
 export default function LeadForm() {
+  console.log("ZAPIER_WEBHOOK_URL:", process.env.NEXT_PUBLIC_ZAPIER_WEBHOOK_URL);
   const shouldReduceMotion = useReducedMotion();
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
