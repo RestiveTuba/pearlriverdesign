@@ -3,6 +3,11 @@
 Lead generation site for a web design agency serving local businesses in Rockland County, NY.  
 Goal: convert a local business owner who lands on the page into a form submission with their phone number.
 
+## Status
+**LIVE** — `https://pearlriverdesign.vercel.app` (custom domain `pearlriverdesign.dev` to connect)  
+**GitHub** — `https://github.com/RestiveTuba/pearlriverdesign`  
+All sections built, mobile-tested, Lighthouse 97/100/100/100, form end-to-end verified.
+
 ## Key references
 - Full build spec: `/Users/paymore/Documents/Claude/Projects/Pearl River Digital/claude-code-prompt.md`
 - Design plan: `/Users/paymore/Documents/Claude/Projects/Pearl River Digital/personal-website-plan.md`
@@ -14,7 +19,7 @@ Goal: convert a local business owner who lands on the page into a form submissio
 - Service area: Pearl River, Suffern, Nyack, Nanuet, Spring Valley, Rockland County
 
 ## Stack
-Next.js 14 App Router (SSG), Tailwind CSS, Framer Motion, next/font (Google).  
+Next.js 14 App Router (SSG + one serverless route), Tailwind CSS, Framer Motion, next/font (Google).  
 No UI libraries. No component kits. Everything built from scratch.
 
 ## Design system
@@ -31,6 +36,7 @@ No UI libraries. No component kits. Everything built from scratch.
 - **Buttons**: solid navy fill, white text, 2px radius, no shadows
 - **No gradients. No glassmorphism. No border glow effects.**
 - **Section alternates**: white → warm-gray → white → navy → white
+- **No em dashes anywhere** — use commas, colons, or periods instead
 
 ## Animations (Emil Kowalski philosophy)
 - Spring physics: `type: "spring", stiffness: 300, damping: 30`
@@ -39,40 +45,31 @@ No UI libraries. No component kits. Everything built from scratch.
 - Cards: stagger 0.08s on scroll entry
 - Hover: Y -2px on cards **or** scale 1.02 on buttons — never both
 - Wrap all in `useReducedMotion()` check
-- Visitors are 40–60 year old business owners — nothing playful
+- Visitors are 40-60 year old business owners — nothing playful
 
 ## Lead form
-- POST JSON to `process.env.NEXT_PUBLIC_ZAPIER_WEBHOOK_URL`
+- Form POSTs to `/api/submit` (Next.js serverless route at `app/api/submit/route.ts`)
+- That route forwards to Zapier server-side — avoids browser CORS restriction
+- Zapier webhook URL stored as `ZAPIER_WEBHOOK_URL` (server-only, no NEXT_PUBLIC_ prefix)
 - Fields: `name`, `business_name`, `business_type` (dropdown), `phone`, `email`
-- Inline success message on submit — no redirect, form stays visible but disabled
-- Fallback: `mailto:` href on submit button when JS disabled
+- Inline success state on submit — form replaced by confirmation message
+- Fallback: `mailto:` link when JS disabled
 
-## Build order (one section per review)
-1. ✅ Scaffold + design tokens + globals.css
-2. ✅ layout.tsx (Space Grotesk + Inter + JetBrains Mono, metadata, JSON-LD)
-3. Navbar
-4. Hero
-5. SocialProof
-6. HowItWorks
-7. Features
-8. Pricing
-9. ExampleSites
-10. LeadForm
-11. About + Footer
-12. Mobile pass (375px)
-13. Lighthouse audit (target: 95+ mobile)
-14. Deploy to Vercel + connect domain
+## Pricing
+- **Website:** $1,000 one-time
+- **Social:** $1,000 upfront + $300/month (Coming Soon — card shown at 60% opacity)
 
 ## File structure
 ```
 app/
-  layout.tsx     — fonts, metadata, JSON-LD
-  page.tsx       — imports all section components
-  globals.css    — design tokens + base styles
+  layout.tsx              — fonts, metadata, JSON-LD LocalBusiness schema
+  page.tsx                — imports all section components
+  globals.css             — design tokens + base styles
+  api/submit/route.ts     — server-side Zapier proxy (POST)
 components/
   Navbar.tsx
   Hero.tsx
-  SocialProof.tsx
+  StatsBar.tsx
   HowItWorks.tsx
   Features.tsx
   Pricing.tsx
@@ -80,10 +77,17 @@ components/
   LeadForm.tsx
   About.tsx
   Footer.tsx
+  Logo.tsx
 public/
   logo-primary.svg
   logo-inverse.svg
-  favicon.ico
-.env.local       — NEXT_PUBLIC_ZAPIER_WEBHOOK_URL (fill before launch)
-.env.example     — template
+  examples/               — brooks-plumbing.png, chen-electrical.png, martinez-roofing.png
+scripts/
+  screenshot-examples.mjs — Puppeteer script to recapture example site screenshots
+.env.local                — ZAPIER_WEBHOOK_URL (set in Vercel, not needed locally unless testing form)
+.env.example              — template
 ```
+
+## Vercel env vars
+- `ZAPIER_WEBHOOK_URL` — server-only, set in Vercel production environment
+- `NEXT_PUBLIC_ZAPIER_WEBHOOK_URL` — legacy, can be removed from Vercel dashboard
