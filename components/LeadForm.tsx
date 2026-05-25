@@ -71,6 +71,12 @@ export default function LeadForm() {
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("success");
+      // Fire-and-forget to CRM — failure is silent, Zapier is the reliable path
+      fetch("http://167.172.131.244:8000/api/website-inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch((err) => console.error("CRM intake failed:", err));
     } catch {
       setStatus("error");
       setError("Something went wrong. Please try again or call us directly.");
