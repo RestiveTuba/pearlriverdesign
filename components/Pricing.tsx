@@ -11,7 +11,8 @@ const WEBSITE_FEATURES = [
   "Live within 24 hours of your first call",
 ];
 
-const SOCIAL_FEATURES = [
+const GROWTH_FEATURES = [
+  "Everything in the Website plan",
   "3 posts per week on Instagram and Facebook, designed, written, and posted for you",
   "Static graphics plus short video Reels",
   "Monthly content calendar",
@@ -71,7 +72,7 @@ export default function Pricing() {
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
-          {/* Website card */}
+          {/* Starter — website */}
           <motion.div
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +84,7 @@ export default function Pricing() {
               className="font-label text-xs block mb-8"
               style={{ color: "rgba(255,255,255,0.6)", letterSpacing: "0.12em" }}
             >
-              WEBSITE
+              STARTER
             </span>
 
             <div className="mb-1">
@@ -135,65 +136,71 @@ export default function Pricing() {
             </a>
           </motion.div>
 
-          {/* Social card, coming soon */}
+          {/* Growth — website + social */}
           <motion.div
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ ...spring, delay: shouldReduceMotion ? 0 : 0.12 }}
             style={{
-              background: "var(--warm-gray)",
+              background: "var(--navy)",
               padding: "clamp(32px, 4vw, 48px)",
-              opacity: 0.6,
+              outline: "2px solid rgba(255,255,255,0.18)",
             }}
           >
             <div className="flex items-center justify-between mb-8">
               <span
                 className="font-label text-xs"
-                style={{ color: "var(--muted)", letterSpacing: "0.12em" }}
+                style={{ color: "rgba(255,255,255,0.6)", letterSpacing: "0.12em" }}
               >
-                SOCIAL
+                GROWTH
               </span>
               <span
                 className="font-label text-xs"
                 style={{
-                  color: "var(--muted)",
+                  color: "rgba(255,255,255,0.7)",
                   letterSpacing: "0.1em",
-                  background: "rgba(0,0,0,0.06)",
+                  background: "rgba(255,255,255,0.12)",
                   padding: "3px 8px",
                 }}
               >
-                COMING SOON
+                MOST POPULAR
               </span>
             </div>
 
-            <div className="mb-1">
+            <div className="mb-1 flex items-end gap-2">
               <span
                 className="font-mono"
                 style={{
-                  color: "var(--charcoal)",
+                  color: "#fff",
                   fontSize: "clamp(48px, 5vw, 64px)",
                   letterSpacing: "-0.03em",
                   lineHeight: 1,
                 }}
               >
-                $1,000
+                $300
+              </span>
+              <span
+                className="font-sans pb-2"
+                style={{ color: "rgba(255,255,255,0.6)", fontSize: "16px" }}
+              >
+                /month
               </span>
             </div>
             <p
               className="font-sans mb-10"
-              style={{ color: "var(--muted)", fontSize: "14px" }}
+              style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", lineHeight: 1.6 }}
             >
-              upfront, then $300/month
+              Everything in Starter, plus 3x/week social content for Instagram and Facebook, monthly content calendar, and captions — all posted for you.
             </p>
 
             <ul className="space-y-3 mb-10">
-              {SOCIAL_FEATURES.map((feat) => (
+              {GROWTH_FEATURES.map((feat) => (
                 <li key={feat} className="flex items-start gap-3">
-                  <Check faint />
+                  <Check />
                   <span
                     className="font-sans"
-                    style={{ color: "var(--muted)", fontSize: "15px", lineHeight: 1.5 }}
+                    style={{ color: "rgba(255,255,255,0.82)", fontSize: "15px", lineHeight: 1.5 }}
                   >
                     {feat}
                   </span>
@@ -201,23 +208,24 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <div
-              className="block text-center font-heading"
+            <a
+              href="#contact"
+              className="block text-center font-heading transition-transform duration-150 active:scale-[0.97]"
               style={{
-                color: "var(--muted)",
+                background: "#fff",
+                color: "var(--navy)",
                 padding: "15px 24px",
                 fontSize: "15px",
                 letterSpacing: "0.02em",
-                border: "1px solid rgba(0,0,0,0.1)",
               }}
             >
-              Not available yet
-            </div>
+              Get started
+            </a>
           </motion.div>
 
         </div>
 
-        {/* Shared footnote */}
+        {/* Footnote */}
         <motion.p
           initial={shouldReduceMotion ? undefined : { opacity: 0 }}
           whileInView={{ opacity: 1 }}

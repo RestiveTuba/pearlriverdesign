@@ -10,7 +10,11 @@ const TRUST_TOWNS = ["Pearl River", "Suffern", "Nyack", "Nanuet", "Spring Valley
 const words = HEADLINE.split(" ");
 const spring = { type: "spring" as const, stiffness: 300, damping: 30 };
 
-export default function Hero() {
+interface HeroProps {
+  videoUrl?: string | null;
+}
+
+export default function Hero({ videoUrl }: HeroProps) {
   const shouldReduceMotion = useReducedMotion();
 
   const wordDelay = (i: number) => (shouldReduceMotion ? 0 : i * 0.06);
@@ -19,12 +23,36 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center relative"
+      className="min-h-screen flex items-center relative overflow-hidden"
       style={{ background: "var(--navy)" }}
       aria-label="Pearl River Design"
     >
-      <div className="max-w-5xl mx-auto px-6 w-full pt-24 pb-20">
+      {/* Video background — rendered only when URL is available and motion is allowed */}
+      {videoUrl && !shouldReduceMotion && (
+        <>
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          <video
+            src={videoUrl}
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ zIndex: 0 }}
+          />
+          <div
+            className="absolute inset-0"
+            aria-hidden="true"
+            style={{ background: "rgba(13,31,60,0.72)", zIndex: 1 }}
+          />
+        </>
+      )}
 
+      <div
+        className="max-w-5xl mx-auto px-6 w-full pt-24 pb-20 relative"
+        style={{ zIndex: 2 }}
+      >
         {/* H1, word-by-word stagger */}
         <h1
           className="font-heading text-white mb-7 leading-[1.1] max-w-4xl"
@@ -70,7 +98,7 @@ export default function Hero() {
             className="inline-flex items-center bg-white font-medium px-7 py-3.5 rounded text-sm transition-all duration-150 active:scale-[0.97] hover:bg-white/90"
             style={{ color: "var(--navy)" }}
           >
-            Get your free demo →
+            Get your free demo &rarr;
           </a>
           <a
             href="#how-it-works"
@@ -81,7 +109,7 @@ export default function Hero() {
               (e.currentTarget.style.color = "rgba(255,255,255,0.72)")
             }
           >
-            See how it works ↓
+            See how it works &darr;
           </a>
         </motion.div>
 
@@ -95,7 +123,6 @@ export default function Hero() {
         >
           {"Serving · " + TRUST_TOWNS.join(" · ")}
         </motion.p>
-
       </div>
     </section>
   );
