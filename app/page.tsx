@@ -14,7 +14,7 @@ async function getHeroVideoUrl(): Promise<string | null> {
     const apiKey = process.env.PEXELS_API_KEY;
     if (!apiKey) return null;
     const res = await fetch(
-      "https://api.pexels.com/videos/search?query=contractor+home+renovation&per_page=1&orientation=landscape",
+      "https://api.pexels.com/videos/search?query=web+design+laptop+screen&per_page=1&orientation=landscape",
       {
         headers: { Authorization: apiKey },
         next: { revalidate: 86400 },
