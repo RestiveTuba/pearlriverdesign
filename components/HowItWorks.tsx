@@ -70,7 +70,7 @@ const STEPS = [
     num: "02",
     icon: <MonitorIcon />,
     title: "We build your site",
-    body: "By the next morning you have a live URL with your name, your work, and a contact form that sends directly to your phone.",
+    body: "We build your site. Live within 24 hours of our call.",
   },
   {
     num: "03",

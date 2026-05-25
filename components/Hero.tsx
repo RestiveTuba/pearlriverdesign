@@ -1,10 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-const HEADLINE = "Your business deserves a website. We'll build it in 24 hours.";
+const HEADLINE = "Your business deserves to be found online.";
 const SUBHEADLINE =
-  "Pearl River Design builds fast, professional websites for contractors and local businesses across Rockland County, starting at $1,000 one time.";
+  "Pearl River Design builds professional websites for contractors and local businesses in Rockland County. One flat fee. No surprises.";
 const TRUST_TOWNS = ["Pearl River", "Suffern", "Nyack", "Nanuet", "Spring Valley"];
 
 const words = HEADLINE.split(" ");
@@ -12,10 +13,16 @@ const spring = { type: "spring" as const, stiffness: 300, damping: 30 };
 
 interface HeroProps {
   videoUrl?: string | null;
+  imageUrl?: string | null;
 }
 
-export default function Hero({ videoUrl }: HeroProps) {
+export default function Hero({ videoUrl, imageUrl }: HeroProps) {
   const shouldReduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   const wordDelay = (i: number) => (shouldReduceMotion ? 0 : i * 0.06);
   const afterWords = shouldReduceMotion ? 0 : words.length * 0.06 + 0.08;
@@ -27,8 +34,8 @@ export default function Hero({ videoUrl }: HeroProps) {
       style={{ background: "var(--navy)" }}
       aria-label="Pearl River Design"
     >
-      {/* Video background — rendered only when URL is available and motion is allowed */}
-      {videoUrl && !shouldReduceMotion && (
+      {/* Desktop: video background */}
+      {!isMobile && videoUrl && !shouldReduceMotion && (
         <>
           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <video
@@ -37,6 +44,25 @@ export default function Hero({ videoUrl }: HeroProps) {
             muted
             loop
             playsInline
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ zIndex: 0 }}
+          />
+          <div
+            className="absolute inset-0"
+            aria-hidden="true"
+            style={{ background: "rgba(13,31,60,0.72)", zIndex: 1 }}
+          />
+        </>
+      )}
+
+      {/* Mobile: static image fallback — avoids iOS Safari autoplay issues */}
+      {isMobile && imageUrl && (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={imageUrl}
+            alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ zIndex: 0 }}
@@ -121,7 +147,7 @@ export default function Hero({ videoUrl }: HeroProps) {
           className="font-label text-xs"
           style={{ color: "rgba(255,255,255,0.55)", letterSpacing: "0.06em" }}
         >
-          {"Serving · " + TRUST_TOWNS.join(" · ")}
+          {"Serving \u00b7 " + TRUST_TOWNS.join(" \u00b7 ")}
         </motion.p>
       </div>
     </section>

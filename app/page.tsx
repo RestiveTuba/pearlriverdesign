@@ -42,14 +42,36 @@ async function getHeroVideoUrl(): Promise<string | null> {
   }
 }
 
+async function getHeroImageUrl(): Promise<string | null> {
+  try {
+    const apiKey = process.env.PEXELS_API_KEY;
+    if (!apiKey) return null;
+    const res = await fetch(
+      "https://api.pexels.com/v1/search?query=web+design+laptop+screen&per_page=1&orientation=landscape",
+      {
+        headers: { Authorization: apiKey },
+        next: { revalidate: 86400 },
+      }
+    );
+    if (!res.ok) return null;
+    const data: { photos?: Array<{ src: { large2x: string } }> } = await res.json();
+    return data.photos?.[0]?.src?.large2x ?? null;
+  } catch {
+    return null;
+  }
+}
+
 export default async function Home() {
-  const heroVideoUrl = await getHeroVideoUrl();
+  const [heroVideoUrl, heroImageUrl] = await Promise.all([
+    getHeroVideoUrl(),
+    getHeroImageUrl(),
+  ]);
 
   return (
     <>
       <Navbar />
       <main>
-        <Hero videoUrl={heroVideoUrl} />
+        <Hero videoUrl={heroVideoUrl} imageUrl={heroImageUrl} />
         <StatsBar />
         <HowItWorks />
         <Features />
