@@ -23,15 +23,20 @@ async function getHeroVideoUrl(): Promise<string | null> {
     if (!res.ok) return null;
     const data: {
       videos?: Array<{
-        video_files?: Array<{ quality: string; file_type: string; link: string }>;
+        video_files?: Array<{ quality: string | null; file_type: string; width: number; link: string }>;
       }>;
     } = await res.json();
     const video = data.videos?.[0];
     if (!video) return null;
-    const hdMp4 = video.video_files?.find(
-      (f) => f.quality === "hd" && f.file_type === "video/mp4"
+    const mp4Files = (video.video_files ?? []).filter(
+      (f) => f.file_type === "video/mp4"
     );
-    return hdMp4?.link ?? null;
+    // Pick HD (1280w) or next-best; Pexels quality field is null in current API
+    const preferred = mp4Files.find((f) => f.width === 1280)
+      ?? mp4Files.find((f) => f.width >= 1920)
+      ?? mp4Files.find((f) => f.width >= 960)
+      ?? mp4Files[0];
+    return preferred?.link ?? null;
   } catch {
     return null;
   }
