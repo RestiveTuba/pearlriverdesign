@@ -31,7 +31,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="flex flex-col gap-5">
-            <Logo variant="inverse" height={33} />
+            <Logo variant="inverse" height={52} />
             <p
               className="font-sans"
               style={{ color: "rgba(255,255,255,0.65)", fontSize: "14px", lineHeight: 1.7, maxWidth: "240px" }}

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const HEADLINE = "Your business deserves to be found online.";
@@ -13,16 +12,11 @@ const spring = { type: "spring" as const, stiffness: 300, damping: 30 };
 
 interface HeroProps {
   videoUrl?: string | null;
-  imageUrl?: string | null;
+  posterUrl?: string | null;
 }
 
-export default function Hero({ videoUrl, imageUrl }: HeroProps) {
+export default function Hero({ videoUrl, posterUrl }: HeroProps) {
   const shouldReduceMotion = useReducedMotion();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
 
   const wordDelay = (i: number) => (shouldReduceMotion ? 0 : i * 0.06);
   const afterWords = shouldReduceMotion ? 0 : words.length * 0.06 + 0.08;
@@ -34,35 +28,17 @@ export default function Hero({ videoUrl, imageUrl }: HeroProps) {
       style={{ background: "var(--navy)" }}
       aria-label="Pearl River Design"
     >
-      {/* Desktop: video background */}
-      {!isMobile && videoUrl && !shouldReduceMotion && (
+      {/* Video background — poster handles the fallback on mobile/slow connections */}
+      {videoUrl && (
         <>
           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <video
             src={videoUrl}
+            poster={posterUrl ?? undefined}
             autoPlay
             muted
             loop
             playsInline
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ zIndex: 0 }}
-          />
-          <div
-            className="absolute inset-0"
-            aria-hidden="true"
-            style={{ background: "rgba(13,31,60,0.72)", zIndex: 1 }}
-          />
-        </>
-      )}
-
-      {/* Mobile: static image fallback — avoids iOS Safari autoplay issues */}
-      {isMobile && imageUrl && (
-        <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={imageUrl}
-            alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ zIndex: 0 }}

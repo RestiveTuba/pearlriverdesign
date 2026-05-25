@@ -53,7 +53,7 @@ export default async function Home() {
     <>
       <Navbar />
       <main>
-        <Hero videoUrl={heroVideoUrl} imageUrl={heroImageUrl} />
+        <Hero videoUrl={heroVideoUrl} posterUrl={heroImageUrl} />
         <StatsBar />
         <HowItWorks />
         <Features />
