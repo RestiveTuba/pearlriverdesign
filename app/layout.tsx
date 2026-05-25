@@ -52,6 +52,7 @@ const jsonLd = {
   description: "Web design agency for local businesses in Rockland County, NY",
   url: "https://pearlriverdesign.dev",
   email: "jackson@pearlriverdesign.dev",
+  telephone: "(914) 354-8647",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Pearl River",

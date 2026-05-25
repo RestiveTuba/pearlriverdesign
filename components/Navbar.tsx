@@ -53,7 +53,7 @@ export default function Navbar() {
             aria-label="Pearl River Design home"
             className="shrink-0 flex items-center self-stretch"
           >
-            <Logo variant={scrolled ? "primary" : "inverse"} height={28} />
+            <Logo variant={scrolled ? "primary" : "inverse"} height={35} />
           </a>
 
           {/* Desktop links */}

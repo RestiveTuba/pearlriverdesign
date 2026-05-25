@@ -81,6 +81,22 @@ export default function Footer() {
             <ul className="flex flex-col">
               <li>
                 <a
+                  href="tel:+19143548647"
+                  className="font-sans inline-flex items-center py-2"
+                  style={{
+                    color: "rgba(255,255,255,0.6)",
+                    fontSize: "14px",
+                    textDecoration: "none",
+                    transition: "color 150ms ease",
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+                >
+                  (914) 354-8647
+                </a>
+              </li>
+              <li>
+                <a
                   href="mailto:jackson@pearlriverdesign.dev"
                   className="font-sans inline-flex items-center py-2"
                   style={{
