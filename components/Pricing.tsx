@@ -11,13 +11,12 @@ const WEBSITE_FEATURES = [
   "Live within 24 hours of your first call",
 ];
 
-const GROWTH_FEATURES = [
-  "Everything in the Website plan",
-  "3 posts per week on Instagram and Facebook, designed, written, and posted for you",
-  "Static graphics plus short video Reels",
-  "Monthly content calendar",
-  "Captions and hashtags on every post",
-  "Text us your updates and we handle the rest",
+const PRO_FEATURES = [
+  "Everything in Starter",
+  "Cinematic video hero built for your trade",
+  "Custom domain (yourbusiness.com) included",
+  "Same-day updates: text us, we handle it",
+  "Premium design tier launching soon",
 ];
 
 function Check({ faint }: { faint?: boolean }) {
@@ -136,24 +135,20 @@ export default function Pricing() {
             </a>
           </motion.div>
 
-          {/* Growth — website + social */}
+          {/* Pro card */}
           <motion.div
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ ...spring, delay: shouldReduceMotion ? 0 : 0.12 }}
-            style={{
-              background: "var(--navy)",
-              padding: "clamp(32px, 4vw, 48px)",
-              outline: "2px solid rgba(255,255,255,0.18)",
-            }}
+            style={{ background: "var(--navy)", padding: "clamp(32px, 4vw, 48px)" }}
           >
             <div className="flex items-center justify-between mb-8">
               <span
                 className="font-label text-xs"
                 style={{ color: "rgba(255,255,255,0.6)", letterSpacing: "0.12em" }}
               >
-                GROWTH
+                PRO
               </span>
               <span
                 className="font-label text-xs"
@@ -164,11 +159,11 @@ export default function Pricing() {
                   padding: "3px 8px",
                 }}
               >
-                MOST POPULAR
+                COMING SOON
               </span>
             </div>
 
-            <div className="mb-1 flex items-end gap-2">
+            <div className="mb-1">
               <span
                 className="font-mono"
                 style={{
@@ -178,24 +173,24 @@ export default function Pricing() {
                   lineHeight: 1,
                 }}
               >
-                $300
-              </span>
-              <span
-                className="font-sans pb-2"
-                style={{ color: "rgba(255,255,255,0.6)", fontSize: "16px" }}
-              >
-                /month
+                $1,200
               </span>
             </div>
             <p
-              className="font-sans mb-10"
-              style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", lineHeight: 1.6 }}
+              className="font-sans mb-1"
+              style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px" }}
             >
-              Everything in Starter, plus 3x/week social content for Instagram and Facebook, monthly content calendar, and captions — all posted for you.
+              + $50/month
+            </p>
+            <p
+              className="font-sans mb-10"
+              style={{ color: "rgba(255,255,255,0.45)", fontSize: "13px" }}
+            >
+              One-time build fee. $50/month covers your domain, hosting, and updates.
             </p>
 
             <ul className="space-y-3 mb-10">
-              {GROWTH_FEATURES.map((feat) => (
+              {PRO_FEATURES.map((feat) => (
                 <li key={feat} className="flex items-start gap-3">
                   <Check />
                   <span
@@ -219,7 +214,7 @@ export default function Pricing() {
                 letterSpacing: "0.02em",
               }}
             >
-              Get started
+              Join the waitlist
             </a>
           </motion.div>
 
