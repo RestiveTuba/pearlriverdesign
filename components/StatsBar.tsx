@@ -28,7 +28,7 @@ export default function StatsBar() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ ...spring, delay: shouldReduceMotion ? 0 : i * 0.1 }}
               className={[
-                "flex flex-col items-center text-center py-12 px-10",
+                "flex flex-col items-center text-center py-6 md:py-12 px-10",
                 i > 0 ? "border-t md:border-t-0 md:border-l" : "",
               ].join(" ")}
               style={{ borderColor: "var(--border)" }}
