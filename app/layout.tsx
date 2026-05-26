@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   alternates: { canonical: "https://pearlriverdesign.dev" },
+  icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
 };
 
 const jsonLd = {
