@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "@/components/Logo";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "How it works", href: "#how-it-works" },
@@ -31,7 +31,13 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="flex flex-col gap-5">
-            <Logo variant="inverse" height={52} />
+            <Image
+              src="/images/lockup-inverse.svg"
+              alt="Pearl River Design"
+              height={52}
+              width={220}
+              style={{ objectFit: 'contain' }}
+            />
             <p
               className="font-sans"
               style={{ color: "rgba(255,255,255,0.65)", fontSize: "14px", lineHeight: 1.7, maxWidth: "240px" }}
