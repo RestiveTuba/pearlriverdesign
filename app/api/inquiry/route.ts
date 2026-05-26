@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const CRM_URL =
-  "http://167.172.131.244:8000/api/website-inquiry?secret=REDACTED_SECRET";
+const CRM_URL = `http://167.172.131.244:8000/api/website-inquiry?secret=${process.env.CRM_WEBHOOK_SECRET}`;
 
 export async function POST(req: NextRequest) {
   let body: unknown;
