@@ -35,7 +35,7 @@ export default function Footer() {
               src="/images/lockup-inverse.svg"
               alt="Pearl River Design"
               height={52}
-              width={220}
+              width={330}
               style={{ objectFit: 'contain' }}
             />
             <p

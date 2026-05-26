@@ -56,8 +56,8 @@ export default function Navbar() {
             <Image
               src="/images/lockup-primary.svg"
               alt="Pearl River Design"
-              height={52}
-              width={220}
+              height={44}
+              width={280}
               priority
               style={{ objectFit: 'contain' }}
             />
