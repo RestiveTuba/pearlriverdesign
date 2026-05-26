@@ -72,7 +72,7 @@ export default function LeadForm() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("success");
       // Fire-and-forget to CRM — failure is silent, Zapier is the reliable path
-      fetch("http://167.172.131.244:8000/api/website-inquiry", {
+      fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
