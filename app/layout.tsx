@@ -32,25 +32,59 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Pearl River Design: Websites for Local Businesses in Rockland County",
-  description:
-    "Professional websites for contractors, barbershops, restaurants, and local businesses in Rockland County, NY. Built in 24 hours. Starting at $1,000.",
-  keywords: [
-    "website design Rockland County NY",
-    "contractor website design Pearl River",
-    "small business website Suffern NY",
-    "web design Nyack NY",
-    "local business website builder",
-  ],
-  openGraph: {
-    title: "Pearl River Design: Websites Built for Local Businesses",
-    description: "Fast, professional websites for Rockland County businesses. Starting at $1,000.",
-    url: "https://pearlriverdesign.dev",
-    siteName: "Pearl River Design",
-    locale: "en_US",
-    type: "website",
+  title: {
+    default: 'Pearl River Design | Contractor Websites for Rockland County',
+    template: '%s | Pearl River Design',
   },
-  alternates: { canonical: "https://pearlriverdesign.dev" },
+  description:
+    'Pearl River Design builds fast, professional websites for contractors and local businesses in Rockland County, NY. Live in 2 minutes. Starting at $1,000.',
+  metadataBase: new URL('https://pearlriverdesign.dev'),
+  keywords: [
+    'contractor website Rockland County',
+    'website design Pearl River NY',
+    'small business website Rockland County',
+    'local business website New York',
+    'roofer website',
+    'landscaper website',
+    'plumber website',
+    'Rockland County web design',
+  ],
+  authors: [{ name: 'Pearl River Design' }],
+  openGraph: {
+    title: 'Pearl River Design | Contractor Websites for Rockland County',
+    description:
+      'Fast, professional websites for contractors in Rockland County, NY. Deployed in minutes. Starting at $1,000.',
+    url: 'https://pearlriverdesign.dev',
+    siteName: 'Pearl River Design',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Pearl River Design — Contractor Websites for Rockland County',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pearl River Design | Contractor Websites for Rockland County',
+    description:
+      'Fast, professional websites for contractors in Rockland County, NY.',
+    images: ['/opengraph-image'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://pearlriverdesign.dev',
+  },
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
 };
 
