@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -20,6 +20,14 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+// Used by the inline text inside lockup SVGs (e.g. <text font-family="Plus Jakarta Sans">).
+// We don't apply it globally to avoid changing typography/metrics across the site.
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -89,6 +97,20 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <span
+          aria-hidden="true"
+          className={plusJakartaSans.className}
+          style={{
+            position: "absolute",
+            width: 1,
+            height: 1,
+            overflow: "hidden",
+            clip: "rect(0 0 0 0)",
+            whiteSpace: "nowrap",
+          }}
+        >
+          .
+        </span>
         {children}
       </body>
     </html>

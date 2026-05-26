@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300">
+  <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+  <stop offset="0%" stop-color="#22D3EE"></stop>
+  <stop offset="50%" stop-color="#6366F1"></stop>
+  <stop offset="100%" stop-color="#A855F7"></stop>
+</linearGradient></defs>
+
+  <g transform="translate(50,75)" fill="none" stroke="url(#g)" stroke-width="20" stroke-linecap="round">
+    <path d="M10,40 Q50,0 90,40 T170,40"></path>
+    <path d="M10,80 Q50,40 90,80 T170,80" opacity="0.7"></path>
+    <path d="M10,120 Q50,80 90,120 T170,120" opacity="0.45"></path>
+  </g>
+  <text x="290" y="170" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="80" letter-spacing="-3" fill="#0D1F3C">pearl<tspan fill="url(#g)">river</tspan></text>
+  <text x="294" y="210" font-family="Plus Jakarta Sans, sans-serif" font-weight="500" font-size="20" letter-spacing="4" fill="#0D1F3C">DESIGN</text>
+</svg>

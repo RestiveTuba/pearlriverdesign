@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import Logo from "./Logo";
 
 const NAV_LINKS = [
   { label: "How it works", href: "#how-it-works" },
@@ -53,7 +53,13 @@ export default function Navbar() {
             aria-label="Pearl River Design home"
             className="shrink-0 flex items-center self-stretch"
           >
-            <Logo variant={scrolled ? "primary" : "inverse"} height={48} />
+            <Image
+              src="/images/lockup-primary.svg"
+              alt="Pearl River Design"
+              height={40}
+              width={160}
+              style={{ objectFit: 'contain' }}
+            />
           </a>
 
           {/* Desktop links */}
