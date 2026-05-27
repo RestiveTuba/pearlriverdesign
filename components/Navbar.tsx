@@ -54,7 +54,7 @@ export default function Navbar() {
             className="shrink-0 flex items-center self-stretch"
           >
             <Image
-              src="/images/lockup-primary.svg"
+              src={scrolled ? "/images/lockup-primary.svg" : "/images/lockup-inverse.svg"}
               alt="Pearl River Design"
               height={44}
               width={280}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const HEADLINE = "Your business deserves to be found online.";
@@ -17,6 +18,11 @@ interface HeroProps {
 
 export default function Hero({ videoUrl, posterUrl }: HeroProps) {
   const shouldReduceMotion = useReducedMotion();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {});
+  }, []);
 
   const wordDelay = (i: number) => (shouldReduceMotion ? 0 : i * 0.06);
   const afterWords = shouldReduceMotion ? 0 : words.length * 0.06 + 0.08;
@@ -33,12 +39,14 @@ export default function Hero({ videoUrl, posterUrl }: HeroProps) {
         <>
           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <video
+            ref={videoRef}
             src={videoUrl}
             poster={posterUrl ?? undefined}
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ zIndex: 0 }}
