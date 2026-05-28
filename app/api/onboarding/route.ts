@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const DEPLOY_URL = `http://167.172.131.244:8000/google-form?secret=${process.env.DEPLOY_SECRET}`;
+const DEPLOY_URL = `http://167.172.131.244:8000/api/webhook/google-form?secret=${process.env.DEPLOY_SECRET}`;
 
 export async function POST(req: NextRequest) {
   let body: unknown;
