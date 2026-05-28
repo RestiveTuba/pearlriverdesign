@@ -19,6 +19,7 @@ export default function OnboardingPage() {
   const [email, setEmail] = useState("");
   const [businessType, setBusinessType] = useState("");
   const [businessLocation, setBusinessLocation] = useState("");
+  const [yearsInBusiness, setYearsInBusiness] = useState("");
   const [towns, setTowns] = useState("");
   const [services, setServices] = useState("");
   const [notes, setNotes] = useState("");
@@ -53,6 +54,7 @@ export default function OnboardingPage() {
       email: email.trim(),
       businessType: businessType.trim(),
       businessLocation: businessLocation.trim(),
+      yearsInBusiness: yearsInBusiness.trim(),
       towns: towns.split(",").map((t) => t.trim()).filter(Boolean),
       services: services.split(",").map((s) => s.trim()).filter(Boolean),
       notes: notes.trim(),
@@ -214,6 +216,23 @@ export default function OnboardingPage() {
                   placeholder="e.g. Pearl River, NY"
                   value={businessLocation}
                   onChange={(e) => setBusinessLocation(e.target.value)}
+                  disabled={sending}
+                  className={INPUT}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="ob-yearsInBusiness" className={LABEL}>
+                  Years in Business
+                </label>
+                <input
+                  id="ob-yearsInBusiness"
+                  type="number"
+                  min="0"
+                  max="100"
+                  placeholder="12"
+                  value={yearsInBusiness}
+                  onChange={(e) => setYearsInBusiness(e.target.value)}
                   disabled={sending}
                   className={INPUT}
                 />
