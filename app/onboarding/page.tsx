@@ -94,7 +94,7 @@ export default function OnboardingPage() {
           <p className="font-sans text-[15px] leading-relaxed text-muted">
             You&apos;ll receive an email at{" "}
             <span className="text-charcoal font-medium">{email}</span> when
-            it&apos;s live — usually within 2 hours.
+            it&apos;s live — usually within 1–2 business days.
           </p>
         </div>
       </div>
