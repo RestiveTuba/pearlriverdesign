@@ -2,24 +2,25 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-const WEBSITE_FEATURES = [
+const STANDARD_FEATURES = [
   "Custom site built around your trade and service area",
   "Mobile-first, loads in under 2 seconds",
   "SEO setup for your city and zip codes",
   "Contact form routed to your email",
-  "Hosting, SSL, and domain management included",
-  "Live within 24 hours of your first call",
+  "Hosting and SSL included",
+  "Live within 1-2 business days",
 ];
 
 const PRO_FEATURES = [
-  "Everything in Starter",
-  "Cinematic video hero built for your trade",
+  "Everything in Standard",
   "Custom domain (yourbusiness.com) included",
-  "Same-day updates: text us, we handle it",
-  "Premium design tier launching soon",
+  "Cinematic video hero built for your trade",
+  "Monthly site updates — text us, we handle it",
+  "Priority support with same-day response",
+  "Ongoing local SEO maintenance",
 ];
 
-function Check({ faint }: { faint?: boolean }) {
+function Check() {
   return (
     <svg
       width="16"
@@ -31,7 +32,7 @@ function Check({ faint }: { faint?: boolean }) {
     >
       <path
         d="M3 8l3.5 3.5L13 4.5"
-        stroke={faint ? "var(--muted)" : "rgba(255,255,255,0.55)"}
+        stroke="rgba(255,255,255,0.55)"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -53,25 +54,20 @@ export default function Pricing() {
     >
       <div className="max-w-5xl mx-auto px-6">
 
-        {/* Heading */}
         <motion.h2
           initial={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={spring}
           className="font-heading mb-16 md:mb-20"
-          style={{
-            color: "var(--charcoal)",
-            fontSize: "clamp(26px, 3.5vw, 42px)",
-          }}
+          style={{ color: "var(--charcoal)", fontSize: "clamp(26px, 3.5vw, 42px)" }}
         >
           Simple, honest pricing
         </motion.h2>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
-          {/* Starter — website */}
+          {/* Standard */}
           <motion.div
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +79,7 @@ export default function Pricing() {
               className="font-label text-xs block mb-8"
               style={{ color: "rgba(255,255,255,0.6)", letterSpacing: "0.12em" }}
             >
-              STARTER
+              STANDARD
             </span>
 
             <div className="mb-1">
@@ -107,7 +103,7 @@ export default function Pricing() {
             </p>
 
             <ul className="space-y-3 mb-10">
-              {WEBSITE_FEATURES.map((feat) => (
+              {STANDARD_FEATURES.map((feat) => (
                 <li key={feat} className="flex items-start gap-3">
                   <Check />
                   <span
@@ -135,7 +131,7 @@ export default function Pricing() {
             </a>
           </motion.div>
 
-          {/* Pro card */}
+          {/* Pro */}
           <motion.div
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -143,25 +139,12 @@ export default function Pricing() {
             transition={{ ...spring, delay: shouldReduceMotion ? 0 : 0.12 }}
             style={{ background: "var(--navy)", padding: "clamp(32px, 4vw, 48px)" }}
           >
-            <div className="flex items-center justify-between mb-8">
-              <span
-                className="font-label text-xs"
-                style={{ color: "rgba(255,255,255,0.6)", letterSpacing: "0.12em" }}
-              >
-                PRO
-              </span>
-              <span
-                className="font-label text-xs"
-                style={{
-                  color: "rgba(255,255,255,0.7)",
-                  letterSpacing: "0.1em",
-                  background: "rgba(255,255,255,0.12)",
-                  padding: "3px 8px",
-                }}
-              >
-                COMING SOON
-              </span>
-            </div>
+            <span
+              className="font-label text-xs block mb-8"
+              style={{ color: "rgba(255,255,255,0.6)", letterSpacing: "0.12em" }}
+            >
+              PRO
+            </span>
 
             <div className="mb-1">
               <span
@@ -173,7 +156,7 @@ export default function Pricing() {
                   lineHeight: 1,
                 }}
               >
-                $1,200
+                $1,000
               </span>
             </div>
             <p
@@ -186,7 +169,7 @@ export default function Pricing() {
               className="font-sans mb-10"
               style={{ color: "rgba(255,255,255,0.45)", fontSize: "13px" }}
             >
-              One-time build fee. $50/month covers your domain, hosting, and updates.
+              Same build fee. $50/month covers your domain, hosting, and ongoing updates.
             </p>
 
             <ul className="space-y-3 mb-10">
@@ -214,13 +197,12 @@ export default function Pricing() {
                 letterSpacing: "0.02em",
               }}
             >
-              Join the waitlist
+              Get started
             </a>
           </motion.div>
 
         </div>
 
-        {/* Footnote */}
         <motion.p
           initial={shouldReduceMotion ? undefined : { opacity: 0 }}
           whileInView={{ opacity: 1 }}
