@@ -35,19 +35,32 @@ async function sendNotification(body: Record<string, unknown>) {
     .filter(Boolean)
     .join("\n");
 
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${resendKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: "Pearl River Design <jackson@pearlriverdesign.me>",
-      to: [NOTIFY_EMAIL],
-      subject: `📋 New Onboarding: ${body.businessName || "Unknown"}`,
-      text,
-    }),
-  }).catch((err) => console.error("onboarding notify: resend error", err));
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "Pearl River Design <jackson@pearlriverdesign.me>",
+        to: [NOTIFY_EMAIL],
+        subject: `📋 New Onboarding: ${body.businessName || "Unknown"}`,
+        text,
+      }),
+      signal: controller.signal,
+    });
+    if (!res.ok) {
+      const detail = await res.text().catch(() => "");
+      console.error(`onboarding notify: resend ${res.status}`, detail);
+    }
+  } catch (err) {
+    console.error("onboarding notify: resend error", err);
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 export async function POST(req: NextRequest) {
