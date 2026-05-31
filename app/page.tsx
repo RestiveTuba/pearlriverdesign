@@ -7,6 +7,7 @@ import Pricing from "@/components/Pricing";
 import ExampleSites from "@/components/ExampleSites";
 import LeadForm from "@/components/LeadForm";
 import About from "@/components/About";
+import WhoWeServe from "@/components/WhoWeServe";
 import Footer from "@/components/Footer";
 
 async function getHeroData(): Promise<{ videoUrl: string | null; imageUrl: string | null }> {
@@ -61,6 +62,7 @@ export default async function Home() {
         <ExampleSites />
         <LeadForm />
         <About />
+        <WhoWeServe />
       </main>
       <Footer />
     </>

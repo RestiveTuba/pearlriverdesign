@@ -18,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...nichePages,
     {
+      url: 'https://pearlriverdesign.dev/about',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
       url: 'https://pearlriverdesign.dev/onboarding',
       lastModified: new Date(),
       changeFrequency: 'monthly',
