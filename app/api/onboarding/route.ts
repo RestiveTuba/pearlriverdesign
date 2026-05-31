@@ -63,8 +63,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Server misconfigured" }, { status: 500 });
   }
 
-  // Fire notification email immediately — don't await so it doesn't slow the response
-  sendNotification(body);
+  // Await notification before proxying — Vercel kills non-awaited work after response
+  await sendNotification(body);
 
   try {
     const upstream = await fetch(DEPLOY_URL, {
