@@ -90,19 +90,27 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "ProfessionalService"],
   name: "Pearl River Design",
   description: "Web design agency for local businesses in Rockland County, NY",
   url: "https://pearlriverdesign.dev",
   email: "jackson@pearlriverdesign.dev",
   telephone: "(914) 354-8647",
+  image: "https://pearlriverdesign.dev/opengraph-image",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Pearl River",
     addressLocality: "Pearl River",
     addressRegion: "NY",
     postalCode: "10965",
     addressCountry: "US",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 41.0584,
+    longitude: -74.0221,
+  },
+  openingHours: "Mo-Fr 09:00-18:00",
   areaServed: [
     "Pearl River",
     "Suffern",
@@ -113,6 +121,22 @@ const jsonLd = {
   ],
   priceRange: "$$",
   serviceType: "Web Design",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Web Design Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Contractor Website",
+          description: "Professional website for local contractors. Live in 1–2 business days.",
+        },
+        price: "1000",
+        priceCurrency: "USD",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
