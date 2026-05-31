@@ -104,6 +104,7 @@ const jsonLd = {
   email: "jackson@pearlriverdesign.dev",
   telephone: "(914) 354-8647",
   image: "https://pearlriverdesign.dev/opengraph-image",
+  sameAs: ["https://share.google/18E6Yq6Nep7UOOW26"],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Pearl River",
