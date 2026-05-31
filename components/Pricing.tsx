@@ -173,7 +173,7 @@ export default function Pricing() {
                   lineHeight: 1,
                 }}
               >
-                $1,200
+                $1,000
               </span>
             </div>
             <p
