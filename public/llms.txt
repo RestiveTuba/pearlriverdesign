@@ -2,21 +2,59 @@
 > Web design agency for contractors and local businesses in Rockland County, NY
 
 ## About
-Pearl River Design builds fast, professional websites for local contractors — plumbers, roofers, electricians, landscapers, HVAC, and more. Sites are live in 1–2 business days for a flat $1,000 fee with no monthly charges.
+Pearl River Design is a one-person web studio run by Jackson O'Hara in Pearl River, NY. We build websites for local contractors and service businesses — fast, professionally designed, and built to rank in Google. Sites go live in 1–2 business days for a flat $1,000 fee with no monthly charges.
 
 ## Services
 - Contractor websites: $1,000 flat, one time. No monthly fees. No contracts.
-- Turnaround: live in 1–2 business days
-- Includes: custom design, Google-optimized, mobile-ready, contact form
-- Service areas: Pearl River, Suffern, Nyack, Nanuet, Spring Valley, Rockland County, NY
+- Turnaround: live in 1–2 business days after intake form is submitted
+- Includes: custom design, mobile-ready, Google-optimized, contact form
+- Service areas: Pearl River, Suffern, Nyack, Nanuet, Spring Valley, Rockland County, NY and surrounding areas
 
 ## Who We Serve
-Local service businesses without a website: plumbers, roofers, electricians, HVAC contractors, landscapers, concrete contractors, fencing contractors, painters, tree service companies
+We build websites for local service businesses that don't have one yet:
+- Plumbers
+- Roofers
+- Electricians
+- HVAC contractors
+- Landscapers
+- Painters
+- Concrete contractors
+- Fencing contractors
+- Tree service companies
+- General contractors
+
+## Pricing
+- $1,000 one-time flat fee
+- No monthly fees
+- No contracts
+- Includes hosting setup, domain configuration, contact form, mobile design, and local SEO setup
+
+## How It Works
+1. Fill out the intake form at https://pearlriverdesign.dev/onboarding
+2. Jackson reviews your info and builds the site (1–2 business days)
+3. You review, approve, and go live
+
+## Niche Pages
+- Plumber websites: https://pearlriverdesign.dev/plumbing
+- Roofer websites: https://pearlriverdesign.dev/roofing
+- Electrician websites: https://pearlriverdesign.dev/electrical
+- HVAC websites: https://pearlriverdesign.dev/hvac
+- Landscaper websites: https://pearlriverdesign.dev/landscaping
+- Painter websites: https://pearlriverdesign.dev/painting
+- Concrete contractor websites: https://pearlriverdesign.dev/concrete
+- Fencing contractor websites: https://pearlriverdesign.dev/fencing
+- Tree service websites: https://pearlriverdesign.dev/tree-service
+
+## Common Questions
+- How much does a contractor website cost? $1,000 flat, one time. No monthly fees.
+- How fast does a site go live? 1–2 business days after the intake form is submitted.
+- Do you require a contract? No contracts. No commitments beyond the one-time fee.
+- What towns do you serve? Pearl River, Suffern, Nyack, Nanuet, Spring Valley, and all of Rockland County, NY.
+- Will my site show up in Google? Every site is built with local SEO from day one.
 
 ## Contact
+- Founder: Jackson O'Hara
 - Email: jackson@pearlriverdesign.dev
 - Phone: (914) 354-8647
-- Address: Pearl River, NY 10965
-
-## Get Started
-Visit https://pearlriverdesign.dev/onboarding to fill out the intake form.
+- Location: Pearl River, NY 10965
+- Get started: https://pearlriverdesign.dev/onboarding

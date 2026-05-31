@@ -88,6 +88,13 @@ export const metadata: Metadata = {
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Pearl River Design",
+  url: "https://pearlriverdesign.dev",
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ProfessionalService"],
@@ -99,7 +106,6 @@ const jsonLd = {
   image: "https://pearlriverdesign.dev/opengraph-image",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Pearl River",
     addressLocality: "Pearl River",
     addressRegion: "NY",
     postalCode: "10965",
@@ -147,6 +153,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
