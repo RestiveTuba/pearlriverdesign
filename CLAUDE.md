@@ -56,8 +56,8 @@ No UI libraries. No component kits. Everything built from scratch.
 - Fallback: `mailto:` link when JS disabled
 
 ## Pricing
-- **Standard:** $1,000 one-time — custom site, hosting, SSL, live in 1-2 business days
-- **Pro:** $1,000 upfront + $50/month — everything in Standard plus custom domain, video hero, monthly updates, ongoing SEO
+- **Website:** $1,000 one-time
+- **Social:** $1,000 upfront + $300/month (Coming Soon — card shown at 60% opacity)
 
 ## File structure
 ```
