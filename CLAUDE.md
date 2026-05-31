@@ -4,9 +4,11 @@ Lead generation site for a web design agency serving local businesses in Rocklan
 Goal: convert a local business owner who lands on the page into a form submission with their phone number.
 
 ## Status
-**LIVE** — `https://pearlriverdesign.vercel.app` (custom domain `pearlriverdesign.dev` to connect)  
+**LIVE** — `https://pearlriverdesign.dev` (custom domain live)  
 **GitHub** — `https://github.com/RestiveTuba/pearlriverdesign`  
-All sections built, mobile-tested, Lighthouse 97/100/100/100, form end-to-end verified.
+All sections built, mobile-tested, Lighthouse 97/100/100/100, form end-to-end verified.  
+Analytics: `@vercel/speed-insights` + `@vercel/analytics` installed in layout.tsx.  
+Onboarding: submits → notification email to jackson@pearlriverdesign.dev (5s timeout, non-2xx logged) → CRM deploy webhook.
 
 ## Key references
 - Full build spec: `/Users/paymore/Documents/Claude/Projects/Pearl River Digital/claude-code-prompt.md`
